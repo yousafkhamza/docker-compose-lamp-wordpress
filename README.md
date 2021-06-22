@@ -13,6 +13,13 @@ It's just a sample compose file with WordPress. So, maybe WordPress developers w
 
 -----
 
+## Includes
+
+3 Containers for LAMP (MySQL, WordPress+PHP-FPM, Nginx)
+2 Volumes (MySQL, WordPress)
+1 Network (For Container interconnecting)
+
+----
 ## Pre-Requests
 - Need to install docker and docker-compose
 - You have a basic knowledge of what is docker.
