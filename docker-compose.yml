@@ -1,0 +1,50 @@
+version: '3'
+services:
+  database:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    networks:
+      - wp-net
+    volumes:
+      - mysql-volume:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlroot123
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  wordpress:
+    image: wordpress:php7.4-fpm-alpine
+    container_name: wordpress
+    restart: always
+    depends_on:
+      - database
+    networks:
+      - wp-net
+    volumes:
+      - wp-volume:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress 
+      WORDPRESS_DB_NAME: wordpress
+
+
+  nginx: 
+    image: nginx:alpine
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - wp-volume:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - wp-net
+
+networks:
+  wp-net:
+volumes:
+  mysql-volume:
+  wp-volume:
