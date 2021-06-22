@@ -155,6 +155,7 @@ server {
 ----
 
 #### Additional 
+
  I also uploaded the same with self-signed SSL so who you guys used that one please enter that directory and create your domain SSL under that working directory. So, please find the below command and try the same.
  
  ```sh
@@ -163,6 +164,11 @@ server {
  ```
  > Also, with self-signed SSL config and compose file have slight differences so please look at the same from your point of view. Please let me know if you have any doubts regarding this blog then I will help you to resolve the same.
  
+----
+
+### Docker-Compose Command Cheat sheet
+![alt text](https://i.ibb.co/D7LHWMx/docker-compose-cheat-sheet-ryan-prater.png)
+
 ----
 
 ## Conclusion
